@@ -1,1 +1,3 @@
 # CodeClause_MarketBasketAnalysis
+I created Market Basket Analysis in Python using Apriori Algorithm. Apriori algorithm refers to the algorithm which is used to calculate the association rules between objects. It means how two or more objects are related to one another. The primary objective of the apriori algorithm is to create the association rule between different objects.
+Tasks involved in the project are downloading dataset, importing required libraries, uploading and reading data, data cleaning and the final step is to generate the association rules with their corresponding support, confidence and lift.
