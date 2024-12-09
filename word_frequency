@@ -1,0 +1,55 @@
+package Assignment;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
+public class word_frequency {
+
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the text");
+		String input = sc.nextLine();
+		
+        Map<String, Integer> wordCount = new HashMap<>();
+
+        
+        String newInput = input.replaceAll("[.,]", "").toLowerCase();
+
+      
+        String[] words = newInput.split("\\s+");
+
+       
+        for (String word : words) {
+            wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
+        }
+
+        
+        List<Map.Entry<String, Integer>> filteredWords = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : wordCount.entrySet()) {
+            if (entry.getValue() > 1) {
+                filteredWords.add(entry);
+            }
+        }
+        filteredWords.sort((a, b) -> {
+            int freqCompare = b.getValue().compareTo(a.getValue());
+            if (freqCompare == 0) {
+                return a.getKey().compareTo(b.getKey());
+            }
+            return freqCompare;
+        });
+   	 
+   	 StringBuilder output = new StringBuilder();
+        for (Map.Entry<String, Integer> entry : filteredWords) {
+            output.append(entry.getKey().toUpperCase()).append(" ").append(entry.getValue()).append(" ");
+        }
+
+   
+        System.out.println(output.toString().trim());
+	}
+	 
+
+}
